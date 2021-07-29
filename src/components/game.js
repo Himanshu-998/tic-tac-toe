@@ -34,6 +34,11 @@ const Game = () => {
     } 
     useEffect(() => {
       console.log(gameState);
+      if(winner) return;
+      for(let i=0; i<gameState.length; ++i) {
+        if(gameState[i] == null) return;
+      }
+      alert("Game Over!");
     },[gameState]);
     
     return (
