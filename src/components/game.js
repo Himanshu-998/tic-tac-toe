@@ -15,7 +15,14 @@ const Game = () => {
       
       console.log(winner)
       // If user click an occupies square or if game is won, return
-      if(winner || boardCopy[i]) return;
+      if(winner) {
+        alert("Game is over " + winner + " won the game, press play again.");
+        return;
+      }
+      if(boardCopy[i]) {
+        alert("Invalid move! already marked.");
+        return;
+      }
       // Put and X or O in the clicked square
       boardCopy[i] = xIsNext ? 'X' : 'O';
       setGameState(boardCopy);
@@ -39,6 +46,7 @@ const Game = () => {
         if(gameState[i] == null) return;
       }
       alert("Game Over!");
+      setGameState(Array(9).fill(null));
     },[gameState]);
     
     return (
